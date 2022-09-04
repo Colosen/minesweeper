@@ -20,8 +20,6 @@ def create_minefield():
 
 
 def pretty_print(minefield):
-    global LENGTH
-    global HEIGHT
     SPACE = 2
     gap = 0
     for i in range(0, LENGTH):
