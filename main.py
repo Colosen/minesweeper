@@ -1,5 +1,5 @@
-import pygame
 from random import randrange
+import gui
 
 LENGTH, HEIGHT = 10, 10
 BOMBS = 20
@@ -58,3 +58,4 @@ def pretty_print(minefield):
 
 create_minefield()
 place_numbers()
+gui.main()
