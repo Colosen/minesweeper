@@ -58,4 +58,4 @@ def pretty_print(minefield):
 
 create_minefield()
 place_numbers()
-gui.main()
+gui.main(minefield)

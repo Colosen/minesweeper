@@ -1,6 +1,11 @@
 import pygame
+from pygame import font
 
 pygame.init()
+pygame.font.init()
+
+# creating font
+my_font = pygame.font.SysFont('Comic Sans MS', 35)
 
 # creating Pygame window
 WIDTH, HEIGHT = 500, 500
@@ -13,7 +18,7 @@ LIGHT_BLUE = (209, 246, 255)
 GREY = (100, 100, 100)
 
 
-def main():
+def main(minefield):
     run = True
     while run: # loop during the time the window is open
         for event in pygame.event.get(): # loop through events indefinitely
@@ -22,6 +27,7 @@ def main():
 
         WIN.fill(BLUE)
         create_squares()
+        print_numbers(minefield)
         pygame.display.update()
 
     pygame.quit()
@@ -35,6 +41,16 @@ def create_squares():
         for j in range(20, HEIGHT-20, 46):
             pygame.draw.rect(WIN, LIGHT_BLUE, rect=(i, j, SIDE_LENGTH, SIDE_LENGTH), border_radius=BORDER_RADIUS) # light blue squares
             pygame.draw.rect(WIN, GREY, rect=(i, j, SIDE_LENGTH, SIDE_LENGTH), width=BORDER_WIDTH, border_radius=BORDER_RADIUS) # grey border around every square
+
+
+def print_numbers(minefield):
+
+    for i in range(0, 10):
+        for j in range(0, 10):
+            text_surface = my_font.render(str(minefield[i][j]), True, (0, 0, 0))
+            x = 20 + 15 + 46*i
+            y = 20 + 15 + 46*j
+            WIN.blit(text_surface, (x, y))
 
 
 if __name__ == "main.py":
